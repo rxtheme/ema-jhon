@@ -1,0 +1,25 @@
+.header__logo {
+   text-align: center;
+}
+
+.header__logo img {
+   height: 80px;
+}
+
+.main__nav {
+   background: #000;
+   padding: 10px 40px;
+   text-align: center;
+
+}
+
+.main__nav a {
+   color: #fff;
+   padding: 10px 15px;
+   text-decoration: none;
+   transition: 0.1s ease;
+}
+
+.main__nav a:hover {
+   background: gray;
+}
