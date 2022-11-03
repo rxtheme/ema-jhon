@@ -1,17 +1,56 @@
 import React from 'react';
-import fakeData from '../../fakeData'
 import { useState } from 'react';
-
-const first10 = fakeData.slice(0, 10);
-// const [products, setProduct] = useState(first10);
+import './Shop.css'
+import fakeData from '../../fakeData/products.json';
+import Product from '../Products/Product';
+import Cart from '../Cart/Cart';
 
 const Shop = () => {
-   console.log("hello");
+   const first10 = fakeData.slice(30, 60);
+   const [products, setProducts] = useState(first10);
+
+
+   // Cart concept
+   const [cart, setCart] = useState([]);
+   // just test a console log
+
+   const handleProductAdd = (product) => {
+      console.log("Product Added", product);
+      const newCart = [...cart, product];
+      setCart(newCart);
+
+   }
+
    return (
-      <div>
-         <h1>Shop</h1>
-      </div>
+
+      <div className='shop__container'>
+
+         <div className="shop__leftSide">
+            <h3>Shop leftBar</h3>
+         </div>
+
+         <div className="shop__feed">
+
+            {
+               products.map(pd =>
+                  <Product
+                     handleProductAdd={handleProductAdd}
+                     product={pd}>
+
+                  </Product>)
+            }
+
+         </div>
+
+         <div className="shop__cart">
+            <Cart cart={cart} />
+
+
+         </div>
+
+      </div >
    );
+
 };
 
 export default Shop;
